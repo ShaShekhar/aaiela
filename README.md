@@ -6,7 +6,7 @@ By leveraging open-source AI models for computer vision, speech-to-text, large l
 and text-to-image inpainting, we have created a seamless editing experience that bridges the gap between
 spoken language and visual transformation.
 
-[demo video](docs/demo.mp4)
+[![Video Thumbnail Image](docs/thumbnail.png)](docs/demo.mp4)
 
 ## Project Structure
 
