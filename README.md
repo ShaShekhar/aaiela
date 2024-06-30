@@ -1,4 +1,4 @@
-# AAIELA: AI Assisted Image Editing with Language and Audio
+## AAIELA: AI Assisted Image Editing with Language and Audio
 
 This project empowers users to modify images using just audio commands.
 
