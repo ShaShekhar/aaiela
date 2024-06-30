@@ -1,0 +1,35 @@
+aaiela incorporates components from the following open-source projects:
+
+**Detectron2**
+
+- License: Apache License 2.0
+- Copyright: Facebook, Inc.
+- Source: https://github.com/facebookresearch/detectron2
+
+This project includes source code from Detectron2, which is subject to the Apache License
+2.0. The original license text and copyright notice can be found in the LICENSE file within the
+`models/detectron2/` directory.
+
+**Faster Whisper**
+
+- License: MIT License
+- Source: https://github.com/SYSTRAN/faster-whisper
+
+This project includes modified source code from faster-whisper, which is subject to the MIT License.
+The original license text and copyright notice can be found in the LICENSE file within the `models/faster_whisper/` directory.
+
+**Stable Diffusion Inpainting**
+
+- License: CreativeML Open RAIL-M License
+- Source: https://github.com/runwayml/stable-diffusion
+
+This project utilizes pre-trained model weights for Stable Diffusion Inpainting, which are subject to
+the CreativeML Open RAIL-M License. Please refer to the original license text for details on usage
+restrictions and conditions.
+
+**Additional Notices**
+
+- This project may also include other open-source components with their respective licenses. Refer to
+  the `LICENSE` files within individual directories for more information.
+
+- The AAIELA project itself is licensed under the Apache 2.0. See the project's LICENSE file for details.

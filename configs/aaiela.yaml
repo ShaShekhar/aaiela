@@ -1,0 +1,39 @@
+LOG_FILE_PATH: /tmp/app.log
+UPLOAD_FOLDER: uploads
+IMG_SIZE: 768 # 512, 1024
+models:
+  detectron2:
+    model_type: PS # OD: for object detection
+    model_name: panoptic_fpn_R_101_3x.yaml
+    device: cuda
+    thresh: 0.7
+  faster_whisper:
+    model_size_or_path: small.en # medium.en, large-v1 etc
+    device: cuda # cpu
+    compute_type: float16 # for cpu: float32
+    download_root: weights
+  language_model:
+    active_model: api # or local
+    local:
+      model_name: phi3
+      model_class: Phi3_mini_4k_instruct
+      device: cuda
+      # compute_type: auto
+    api:
+      # set the api key in .env file
+      provider: gemini # default provider
+      gemini:
+        model_name: gemini-pro
+      openai:
+        model_name: GPT-4
+      # add your own llm api provider
+  sd_inpaint:
+    path: configs/v1-inpainting-inference.yaml
+    ckpt: weights/sd-v1-5-inpainting.ckpt
+    device: cpu # or cpu
+    ddim_steps: 10
+    ddim_eta: 0.0 # corresponds to deterministic sampling
+    scale: 12.0
+  # segment_anything:
+web_frontend:
+  recording_time: 8 # in seconds

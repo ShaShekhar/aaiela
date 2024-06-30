@@ -1,0 +1,1 @@
+from models.faster_whisper.transcribe import WhisperModel

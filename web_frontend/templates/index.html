@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> -->
+    <meta name="keywords"
+        content="AI Image Editing, Audio assisted Image editing, stable diffusion, LLMs, detection, Segmentation, Whisper, Generative AI">
+    <meta name="description" content="Audio assisted Image editing.">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- <link rel="stylesheet" media="screen and (max-width: 968px)" href="{{ url_for('static', filename='mobile.css') }}"> -->
+    <title>Audio assisted Image editing.</title>
+</head>
+
+<body>
+    <div class="dynamic-margin">
+        <div id="overlay"></div>
+        <div class="upload-container">
+            <div id="uploadSection" class="upload-section">
+                <input type="file" id="fileInput" accept style="display: none;">
+
+                <div class="icons">
+                    <svg viewBox="64 64 800 800" data-icon="upload" width="1em" height="1em" fill="currentColor"
+                        style="display: inline-block; margin: 0 20px;">
+                        <path
+                            d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 
+                                        10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 
+                                        13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 
+                                        3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z">
+                        </path>
+                    </svg>
+
+                    <div class="logo-icon">
+                        <img alt=".jpeg" src="{{ url_for('static', filename='fileIcons/jpeg64.png') }}" width="24"
+                            height="24">
+                        <span>.jpeg</span>
+                    </div>
+
+                    <div class="logo-icon">
+                        <img alt=".jpg" src="{{ url_for('static', filename='fileIcons/jpg64.png') }}" width="24"
+                            height="24">
+                        <span>.jpg</span>
+                    </div>
+                    <div class="logo-icon">
+                        <img alt=".png" src="{{ url_for('static', filename='fileIcons/png64.png') }}" width="24"
+                            height="24">
+                        <span>.png</span>
+                    </div>
+                    <!-- <div class="logo-icon">
+                        <img alt=".webp" src="{{ url_for('static', filename='fileIcons/webp64.png') }}" width="32"
+                            height="32">
+                        <span>.webp</span>
+                    </div> -->
+                    <p style="font-size: 16px; color: #464358; margin-top: 15px;">(Click here to Upload
+                        Image.)
+                    </p>
+                </div>
+                <p style="margin: 0; padding: 0;" id="fileStatus"></p>
+            </div>
+
+            <div class="segment-btn">
+                <span>
+                    <button id="segment" class="btn btn-success mt-2 mb-2" disabled>
+                        <span class="spinner" id="spinner" style="display: none;"></span>Segment
+                    </button>
+                </span>
+            </div>
+        </div>
+        <p id="segErrorInfo" class="error-info"></p>
+
+        <section>
+            <div id="gridContainer" class="grid-container">
+                <div class="grid-item">
+                    <img id="origImage" src="{{ url_for('static', filename='images/origImg.jpg') }}" alt="Image 1">
+                    <p>Original Image</p>
+                </div>
+                <div class="grid-item">
+                    <img id="segmentation" src="{{ url_for('static', filename='images/segImg.jpg') }}" alt="Image 1">
+                    <p>Segmentation of Original Image</p>
+                </div>
+                <div class="grid-item">
+                    <img id="recv1" src="{{ url_for('static', filename='images/inpaint1.jpg') }}" alt="Image 1">
+                    <p>Replace the sky with a starry night.</p>
+                </div>
+                <div class="grid-item">
+                    <img id="recv2" src="{{ url_for('static', filename='images/inpaint2.jpg') }}" alt="Image 1">
+                    <p>Replace the mountain with the Himalayan mountain covered in snow.</p>
+                </div>
+            </div>
+            <div style="margin-bottom: 100px;"></div>
+        </section>
+    </div>
+    <div id="inputContainer">
+        <textarea id="userInput" placeholder="Replace the sky with a starry night."></textarea>
+        <button id="recordButton" title="Record Audio" data-recording-time="{{ recording_time }}">
+            <svg id="micIcon" viewBox="0 0 24 24">
+                <path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 
+                    1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 
+                    6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z" />
+            </svg>
+        </button>
+        <button id="sendArrow" style="display: none;" title="Submit">
+            <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+            </svg>
+        </button>
+    </div>
+
+    <div id="toastContainer">
+        <div id="toastMessage" class="toast-hidden">
+            <span id="toastText"></span>
+            <button id="toastCloseBtn">X</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>

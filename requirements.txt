@@ -1,0 +1,12 @@
+google-generativeai
+tokenizers
+transformers
+openai
+ftfy
+einops
+pillow
+omegaconf
+flask
+gunicorn
+ctranslate2
+opencv-python
