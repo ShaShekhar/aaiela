@@ -6,7 +6,6 @@ By leveraging open-source AI models for computer vision, speech-to-text, large l
 and text-to-image inpainting, we have created a seamless editing experience that bridges the gap between
 spoken language and visual transformation.
 
-
 https://github.com/ShaShekhar/aaiela/assets/36410320/cc267599-beb9-4451-8c8b-138e223291f4
 
 ## Project Structure
@@ -40,15 +39,17 @@ Toggle between using an API-based model or a local LLM by modifying the `active_
 
 ## Project Workflow
 
-1. Upload: User uploads an image.
-2. Segmentation: Detectron2 performs segmentation.
-3. Audio Input: User records an audio command (e.g., "Replace the sky with a starry night.").
-4. Transcription: Faster Whisper transcribes the audio into text.
-5. Language Understanding: The LLM (Gemini, GPT4, Phi3 etc.) to extracts object, action, and prompt from the text.
-6. Image Inpainting:
-   - Relevant masks are selected from the segmentation results.
-   - Stable Diffusion Inpainting apply the desired changes.
-7. Output: The inpainted image.
+**1. Upload**: User uploads an image.
+**2. Segmentation**: Detectron2 performs segmentation.
+**3. Audio Input**: User records an audio command (e.g., "Replace the sky with a starry night.").
+**4. Transcription**: Faster Whisper transcribes the audio into text.
+**5. Language Understanding**: The LLM (Gemini, GPT4, Phi3 etc.) to extracts object, action, and prompt from the text.
+**6. Image Inpainting**:
+
+- Relevant masks are selected from the segmentation results.
+- Stable Diffusion Inpainting apply the desired changes.
+
+**7. Output**: The inpainted image.
 
 ## Research
 
