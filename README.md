@@ -39,17 +39,17 @@ Toggle between using an API-based model or a local LLM by modifying the `active_
 
 ## Project Workflow
 
-**1. Upload**: User uploads an image.
-**2. Segmentation**: Detectron2 performs segmentation.
-**3. Audio Input**: User records an audio command (e.g., "Replace the sky with a starry night.").
-**4. Transcription**: Faster Whisper transcribes the audio into text.
-**5. Language Understanding**: The LLM (Gemini, GPT4, Phi3 etc.) to extracts object, action, and prompt from the text.
-**6. Image Inpainting**:
+- **1. Upload**: User uploads an image.
+- **2. Segmentation**: Detectron2 performs segmentation.
+- **3. Audio Input**: User records an audio command (e.g., "Replace the sky with a starry night.").
+- **4. Transcription**: Faster Whisper transcribes the audio into text.
+- **5. Language Understanding**: The LLM (Gemini, GPT4, Phi3 etc.) to extracts object, action, and prompt from the text.
+- **6. Image Inpainting**:
 
-- Relevant masks are selected from the segmentation results.
-- Stable Diffusion Inpainting apply the desired changes.
+  - Relevant masks are selected from the segmentation results.
+  - Stable Diffusion Inpainting apply the desired changes.
 
-**7. Output**: The inpainted image.
+- **7. Output**: The inpainted image.
 
 ## Research
 
