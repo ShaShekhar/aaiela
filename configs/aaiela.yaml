@@ -30,8 +30,8 @@ models:
   sd_inpaint:
     path: configs/v1-inpainting-inference.yaml
     ckpt: weights/sd-v1-5-inpainting.ckpt
-    device: cpu # or cpu
-    ddim_steps: 10
+    device: cuda # or cpu
+    ddim_steps: 40
     ddim_eta: 0.0 # corresponds to deterministic sampling
     scale: 12.0
   # segment_anything:
